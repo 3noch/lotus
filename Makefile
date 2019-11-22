@@ -81,9 +81,11 @@ build: lotus lotus-storage-miner
 
 .PHONY: build
 
+PREFIX ?= /usr/local/bin
+
 install:
-	install -C ./lotus /usr/local/bin/lotus
-	install -C ./lotus-storage-miner /usr/local/bin/lotus-storage-miner
+	install -C ./lotus $(PREFIX)/lotus
+	install -C ./lotus-storage-miner $(PREFIX)/lotus-storage-miner
 
 benchmarks:
 	go run github.com/whyrusleeping/bencher ./... > bench.json
